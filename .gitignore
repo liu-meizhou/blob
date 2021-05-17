@@ -1,0 +1,11 @@
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+themes/hexo-theme-webstack
+themes/next
+public/
+.deploy_git/

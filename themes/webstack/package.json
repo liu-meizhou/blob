@@ -1,0 +1,61 @@
+{
+  "_from": "hexo-theme-webstack@^2.0.4",
+  "_id": "hexo-theme-webstack@2.0.4",
+  "_inBundle": false,
+  "_integrity": "sha1-EhrIDJz7mjyyaICyp+TBe3eGlaI=",
+  "_location": "/hexo-theme-webstack",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "hexo-theme-webstack@^2.0.4",
+    "name": "hexo-theme-webstack",
+    "escapedName": "hexo-theme-webstack",
+    "rawSpec": "^2.0.4",
+    "saveSpec": null,
+    "fetchSpec": "^2.0.4"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.nlark.com/hexo-theme-webstack/download/hexo-theme-webstack-2.0.4.tgz",
+  "_shasum": "121ac80c9cfb9a3cb26880b2a7e4c17b778695a2",
+  "_spec": "hexo-theme-webstack@^2.0.4",
+  "_where": "D:\\project\\blob",
+  "author": {
+    "name": "HCLonely",
+    "email": "h1606051253@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/HCLonely/hexo-theme-webstack/issues",
+    "email": "h1606051253@gmail.com"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "A hexo theme based on webstack.",
+  "devDependencies": {
+    "clean-css-cli": "^4.3.0",
+    "ejs-lint": "^1.1.0",
+    "uglify-js": "^3.9.4"
+  },
+  "homepage": "https://github.com/HCLonely/hexo-theme-webstack#readme",
+  "keywords": [
+    "hexo",
+    "theme",
+    "webstack"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "hexo-theme-webstack",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HCLonely/hexo-theme-webstack.git"
+  },
+  "scripts": {
+    "mincss": "cleancss",
+    "postinstall": "node ./move_config.js",
+    "test": "ejslint"
+  },
+  "version": "2.0.4"
+}

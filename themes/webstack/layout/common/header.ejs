@@ -1,0 +1,117 @@
+<div class="sidebar-menu toggle-others fixed">
+  <div class="sidebar-menu-inner">
+    <header class="logo-env">
+      <div class="logo">
+        <a href="/index.html" class="logo-expanded">
+          <img src="<%= setting.logo.expanded %>" width="100%" alt="" />
+        </a>
+        <a href="/index.html" class="logo-collapsed">
+          <img src="<%= setting.logo.collapsed %>" width="40" alt="" />
+        </a>
+      </div>
+      <div class="mobile-menu-toggle visible-xs">
+        <a href="#" data-toggle="user-info-menu">
+          <i class="linecons-cog"></i>
+        </a>
+        <a href="#" data-toggle="mobile-menu">
+          <i class="fas fa-bars"></i>
+        </a>
+      </div>
+    </header>
+    <ul id="main-menu" class="main-menu">
+      <% function getContentTree(content) {
+        const res = [];
+        const re = /<h(\d) id="(\S+)"><a href="(\S+)" class="headerlink" title="(\S+)">/ig;
+        while(tempR = re.exec(content))
+        {
+          const itemMenu = {
+            sort: parseInt(tempR[1]),
+            id: tempR[2],
+            name: tempR[4],
+            icon: "far fa-star"           
+          }
+          res.push(itemMenu);
+        }
+        return buildContentTree(res).submenu;
+      }
+
+      function buildContentTree(res, start=0) {
+        let tree = [];
+        for (let i = start; i < res.length; i++) {
+          const e = res[i];
+          if (tree.length > 0 && tree[0].sort > e.sort) {
+            return {
+              submenu: tree,
+              len: i - start
+            }
+          }
+          tree.push(e)
+          if (i+1 < res.length && e.sort < res[i+1].sort) {
+            // e后面的是e的子节点
+            const buf = buildContentTree(res, i+1);
+            e.submenu = buf.submenu;
+            i += buf.len;
+          } 
+        }
+        return {
+          submenu: tree,
+          len: res.length - start + 1
+        };
+      }
+
+      function treeMenu(menus) {
+        let menuHtml = '';
+        for( let e of menus ) {
+          if (!e.id) {
+            e.id = e.name
+          }
+          menuHtml += '<li>';
+          if (e.submenu) {
+            menuHtml += '<a class="fas fa-angle-down" style="cursor: pointer;">';
+          } else {
+            menuHtml += '<a href="#' + e.id + '" class="smooth">';
+          }
+          menuHtml += '<i class="' + e.icon + '"></i>';
+          menuHtml += '<span class="title">' + e.name + '</span>';
+          menuHtml += '</a>';
+          if (e.submenu) {
+            menuHtml += '<ul>';
+            menuHtml += treeMenu(e.submenu);
+            menuHtml += '</ul>';
+          }
+          menuHtml += '</li>';
+        }
+        return menuHtml;
+      } %>
+
+      <% if (is_post()) { %>
+        <%- treeMenu(getContentTree(setting.content)) %>
+      <% } else { %>
+        <%- treeMenu(setting.menu) %>
+      <% } %>
+
+      <% if (setting.about) { %>
+      <li class="submit-tag">
+        <a href="<%= url_for(setting.about.url) %>">
+          <i class="<%= setting.about.icon %>"></i>
+          <span class="tooltip-blue"><%= setting.about.name %></span>
+        </a>
+      </li>
+      <% } %>
+      <% if (setting.busuanzi.enable && setting.busuanzi.position === 'sidebar') { %>
+      <li>
+        <a href="javascript:void(0)">
+          <i class="fas fa-eye"></i>
+          <span id="busuanzi_container_site_pv"><%- setting.busuanzi.pv.replace(/\$pv/i,'<span id="busuanzi_value_site_pv"></span>') %></span>
+        </a>
+      </li>
+      <li>
+        <a href="javascript:void(0)">
+          <i class="fas fa-users"></i>
+          <span id="busuanzi_container_site_uv"><%- setting.busuanzi.uv.replace(/\$uv/i,'<span id="busuanzi_value_site_uv"></span>') %></span>
+        </a>
+      </li>
+      <% } %>
+    </ul>
+  </div>
+</div>
