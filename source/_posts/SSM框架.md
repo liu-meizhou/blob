@@ -37,7 +37,7 @@
 - 使用Spring的API获取Bean对象。
 - 代码演示：
 
-```java
+``` java
 
 //	接口：
 package com.gzhu.dao;
@@ -107,8 +107,9 @@ public class UserDemo {
 
 - 代码演示：
 
-```java
-//	配置文件中Bean的scope属性的取值：
+``` java
+
+// 配置文件中Bean的scope属性的取值：
 <bean id="UserDao" class="com.gzhu.dao.impl.UserDaoImpl" scope="prototype"></bean>
 
 //	测试代码：
@@ -154,7 +155,7 @@ public class SpringTest {
   - 创建一个工厂类，类里面定义一个创建UserDao对象的【**静态**】方法，通过工厂类，创建UserDao对象。
   - 代码演示：
 
-  ```java
+  ``` java
   工厂类：
   package com.gzhu.factory;
   public class StaticFactory {
@@ -174,7 +175,7 @@ public class SpringTest {
   - 在配置文件中需要先创建工厂类对象，才可以调用其中的方法，创建UserDao对象。
   - 代码演示：
 
-  ```java
+  ``` java
   工厂类：
   com.gzhu.factory;
   public class DynameicFactory {
@@ -200,7 +201,7 @@ public class SpringTest {
 
     - 代码演示：
 
-    ```java
+    ``` java
     //	UserService类：
     public class UserServiceImpl implements UserService {
     
@@ -228,7 +229,7 @@ public class SpringTest {
 
     - 代码演示：
 
-    ```java
+    ``` java
     //	UserService类：
     public class UserServiceImpl implements UserService {
     
@@ -253,7 +254,7 @@ public class SpringTest {
 
   - 基本数据类型：
 
-  ```java
+  ``` java
   <bean id = "UserService" class="com.gzhu.service.impl.UserServiceImpl">
       <property name="userDao" value="UserDao"></property>
   </bean>
@@ -261,7 +262,7 @@ public class SpringTest {
 
   - 引用类型：
 
-  ```java
+  ``` java
   <bean id = "UserService" class="com.gzhu.service.impl.UserServiceImpl">
       <property name="userDao" ref="UserDao"></property>
       <property name="age" ref="22"></property>
@@ -270,7 +271,7 @@ public class SpringTest {
 
   - 集合数据类型：
 
-  ```java
+  ``` java
   <bean id = "UserService" class="com.gzhu.service.impl.UserServiceImpl">
       <list>
       	<value>...</value>
@@ -286,7 +287,7 @@ public class SpringTest {
 - 在实际开发中，Spring的配置文件内容非常多，放在一起管理起来比较繁琐，Spring支持将部分配置文件拆解到其他配置文件种，而在主配置文件中使用import标签进行加载。
 - 格式：
 
-```java
+``` java
 <import resource="配置文件的文件名"/>
 ```
 
@@ -305,7 +306,7 @@ public class SpringTest {
 
 - getBean的两个重载方法：
 
-```java
+``` java
 public Object getBean(String id):根据容器中的id属性获取对象。
 public<T> T getBean（Class<T> RequiredType）：根据字节码文件对象创建对象。
 ```
@@ -331,7 +332,7 @@ public<T> T getBean（Class<T> RequiredType）：根据字节码文件对象创�
 
 - 传统方式获取数据源对象：
 
-```java
+``` java
 @Test
     //  测试手动创建c3p0数据源
     public void test1()throws Exception{
@@ -348,7 +349,7 @@ public<T> T getBean（Class<T> RequiredType）：根据字节码文件对象创�
 
 - 配置文件方式获取数据源对象：
 
-```java
+``` java
 //	配置文件：
 jdbc.driver=com.mysql.cj.jdbc.Driver
 jdbc.url=jdbc:mysql://localhost:3306/bjpowernode?useSSL=FALSE&&serverTimezone=UTC
@@ -379,7 +380,7 @@ jdbc.password=832870@Cmy
 
 - 利用spring获取数据源对象：
 
-```java
+``` java
 //	配置文件：
 <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
@@ -408,7 +409,7 @@ jdbc.password=832870@Cmy
 
   - 在spring配置文件中添加context标签：
 
-  ```java
+  ``` java
   //	添加以下两行代码
   xmlns:context="http://www.springframework.org/schema/context"
   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
@@ -416,14 +417,14 @@ jdbc.password=832870@Cmy
 
 - 将properties通过context标签加载到spring容器中：
 
-```java
+``` java
 <!--加载外部的配置文件-->
 <context:property-placeholder location="classpath:jdbc.properties"/>
 ```
 
 - 新的配置文件：
 
-```java
+``` java
 <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="${jdbc.driver}"></property>
         <property name="jdbcUrl" value="${jdbc.url}"></property>
@@ -451,7 +452,7 @@ jdbc.password=832870@Cmy
   - @Predestory:相当于原始bean标签的destory-method方法，设置销毁方法。
 - 代码演示：
 
-```java
+``` java
 //	dao层：
 //  <bean id="userDao" class="cn.gzhu.dao.impl.UserDaoImpl"/>
 @Component("userDao")
@@ -512,7 +513,7 @@ public class UserController {
   - @Import：用于导入其他配置类。
 - 新注解的使用，代码演示（对比传统xml配置文件）：
 
-```java
+``` java
 /*
     Spring配置类：代替xml配置文件
  */
@@ -556,7 +557,7 @@ public class SpringConfiguration {
 
 - 代码实现：
 
-```java
+``` java
 @RunWith(SpringJUnit4ClassRunner.class)
 //@ContextConfiguration("classpath:applicationContext.xml")
 @ContextConfiguration(classes = SpringConfiguration.class)
@@ -603,7 +604,7 @@ public class SpringJunitTest {
 
 - 代码演示：
 
-```java
+``` java
 public class ProxyTest {
     public static void main(String[] args) {
         //  创建目标对象
@@ -639,7 +640,7 @@ public class ProxyTest {
 
 - 代码演示：
 
-```java
+``` java
 public class Proxy_cglib_Test {
     public static void main(String[] args) {
         //  创建目标对象
@@ -697,14 +698,14 @@ public class Proxy_cglib_Test {
 
   - 在applicationContext.xml配置文件中引入aop标签
 
-  ```java
+  ``` java
   xmlns:aop="http://www.springframework.org/schema/aop"
   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
   ```
 
   - 编写切面类和目标类：
 
-  ```java
+  ``` java
   /*
       切面类：里面包含增强方法
    */
@@ -734,7 +735,7 @@ public class Proxy_cglib_Test {
   ```
   - 在xml文件中配置对象
 
-  ```java
+  ``` java
   <!--配置目标对象-->
   <bean id="target" class="cn.gzhu.proxy.jdk.aop.Target"></bean>
   <!--配置切面-->
@@ -743,7 +744,7 @@ public class Proxy_cglib_Test {
 
   - 配置织入
 
-  ```java
+  ``` java
   <aop:config>
           <!--介个标签表示配置切面类-->
           <aop:aspect ref="myaspect">
@@ -762,7 +763,7 @@ public class Proxy_cglib_Test {
 
   - 表达式语法：
 
-  ```java
+  ``` java
   execution([修饰符] 返回值类型 包名.类名.方法名（参数列表）)
   ```
 
@@ -784,7 +785,7 @@ public class Proxy_cglib_Test {
 
   - 格式：
 
-  ```java
+  ``` java
   <aop:pointcut id="自定义一个id" expression="切点表达式"></aop:pointcut>
   ```
 
@@ -799,7 +800,7 @@ public class Proxy_cglib_Test {
   - 测试。
 - 代码演示;
 
-```java
+``` java
 //	目标类：
 <!--配置目标对象-->
     <bean id="target" class="cn.gzhu.proxy.jdk.aop.Target"></bean>
@@ -880,7 +881,7 @@ public class AopAnnoTest {
   - 执行相应的sql语句。
 - 代码演示：
 
-```java
+``` java
 @Test
     //  测试jdbcTemplate开发步骤
     public void test1() throws PropertyVetoException {
@@ -909,7 +910,7 @@ public class AopAnnoTest {
   - 执行sql语句，对数据库进行操作。
 - 代码实现：
 
-```java
+``` java
 //	配置文件：
 <!--读取properties文件-->
     <context:property-placeholder location="jdbc.properties"/>

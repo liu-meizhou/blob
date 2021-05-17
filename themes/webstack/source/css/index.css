@@ -418,6 +418,7 @@ body.night .search-engine-list li {
 .sidebar-menu .main-menu a>i+span {
   display: inline-flex;
   width: 80%;
+  line-height: initial;
   padding-right: 0;
   overflow: hidden;
   text-overflow: ellipsis;

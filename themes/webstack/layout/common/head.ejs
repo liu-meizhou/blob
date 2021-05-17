@@ -7,6 +7,8 @@
   <meta name="keywords" content="<%= setting.keywords || config.keywords %>">
   <meta name="description" content="<%= setting.description || config.description %>">
   <link rel="shortcut icon" href="<%= setting.favicon %>">
+  <link rel="stylesheet" href="/css/github.min.css">
+  <script src="/js/highlight.min.js"></script>
   <%- css(Object.values(setting.css)) %>
   <%- js(setting.js.jquery) %>
   <%- js(setting.js.header) %>
@@ -15,6 +17,10 @@
         <%- js(setting.js.html5shiv) %>
         <%- js(setting.js.respond) %>
     <![endif]-->
+  <script>
+  hljs.configure({useBR: true});
+  hljs.initHighlightingOnLoad();
+  </script>
   <!-- / FB Open Graph -->
   <meta property="og:type" content="article">
   <meta property="og:url" content="<%= url %>">

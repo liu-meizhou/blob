@@ -5,7 +5,7 @@ tags:
 ---
 
 # 一级标题
-```javascript
+``` javascript
 
 # 虚假标题
 function(a) {

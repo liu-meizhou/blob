@@ -147,6 +147,7 @@ js:
   html5shiv: /js/html5shiv.min.js
   respond: /js/respond.min.js
   busuanzi: https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js
+  # highlight: /js/highlight.min.js
 
 css:
   fonts: //fonts.loli.net/css?family=Arimo:400,700,400italic
@@ -158,8 +159,9 @@ css:
   xenonSkins: /css/xenon-skins.min.css
   hclonely: /css/index.css
   nav: /css/nav.min.css
-  base: /css/base.css
-  codemirror: /css/codemirror.css
+  # base: /css/base.css
+  # codemirror: /css/codemirror.css
   # typora: /css/typora.css
-  github: /css/github.css
+  # github: /css/github.css
   md: /css/md.css
+  # highlight: /css/github.min.css
