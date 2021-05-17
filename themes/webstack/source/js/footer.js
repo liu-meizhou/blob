@@ -42,7 +42,7 @@ $(document).ready(function () {
     public_vars.$mainMenu.add(public_vars.$sidebarProfile).toggleClass('mobile-is-visible');
     ps_destroy();
     $("html, body").animate({
-      scrollTop: $($(this).attr("href")).offset().top - 30
+      scrollTop: $($(this).attr("href")).offset().top
     }, {
       duration: 500,
       easing: "swing"
@@ -60,7 +60,7 @@ $("a.smooth").click(function (e) {
   $(this).parent("li").addClass("active");
   e.preventDefault();
   href = $(this).attr("href");
-  pos = $(href).position().top - 30;
+  pos = $(href).position().top;
 });
 (function () {
   if (document.cookie.replace(/(?:(?:^|.*;\s*)night\s*\=\s*([^;]*).*$)|^.*$/, "$1") === '') {

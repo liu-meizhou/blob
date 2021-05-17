@@ -59,7 +59,7 @@
         };
       }
 
-      function treeMenu(menus) {
+      function treeMenu(menus, paddingL=0) {
         let menuHtml = '';
         for( let e of menus ) {
           if (!e.id) {
@@ -67,16 +67,16 @@
           }
           menuHtml += '<li>';
           if (e.submenu) {
-            menuHtml += '<a class="fas fa-angle-down" style="cursor: pointer;">';
+            menuHtml += '<a class="fas fa-angle-down" style="cursor: pointer; padding-left: ' + paddingL + 'em" title="' + e.name + '">';
           } else {
-            menuHtml += '<a href="#' + e.id + '" class="smooth">';
+            menuHtml += '<a href="#' + e.id + '" class="smooth" style="padding-left: ' + paddingL + 'em" title="' + e.name + '">';
           }
           menuHtml += '<i class="' + e.icon + '"></i>';
           menuHtml += '<span class="title">' + e.name + '</span>';
           menuHtml += '</a>';
           if (e.submenu) {
             menuHtml += '<ul>';
-            menuHtml += treeMenu(e.submenu);
+            menuHtml += treeMenu(e.submenu, paddingL+1);
             menuHtml += '</ul>';
           }
           menuHtml += '</li>';

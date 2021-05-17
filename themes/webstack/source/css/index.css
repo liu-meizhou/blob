@@ -407,11 +407,27 @@ body.night .search-engine-list li {
   padding-bottom: 200px !important;
 }
 
-
-.code {
-  width: 100%;
+.sidebar-menu .main-menu a {
+  border-bottom: 2px solid #313437;
 }
 
-pre {
-  width: 100%;
+.sidebar-menu .main-menu a>i {
+  margin-right: .5em;
+}
+
+.sidebar-menu .main-menu a>i+span {
+  display: inline-flex;
+  width: 80%;
+  padding-right: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-menu .main-menu {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.fa-angle-down,.smooth {
+  white-space: nowrap;
 }
