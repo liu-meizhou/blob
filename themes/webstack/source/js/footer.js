@@ -30,11 +30,15 @@ $(document).ready(function () {
     }
   })
   $("#main-menu li").click(function () {
-    ps_update(true)
-  });
-  $("#main-menu li ul li").click(function () {
+    // $('#main-menu').children('li').removeClass('active'); // 删除其他根元素元素的样式
     $(this).siblings('li').removeClass('active'); // 删除其他兄弟元素的样式
     $(this).addClass('active'); // 添加当前元素的样式
+    ps_update(true)
+  });
+  $("#main-menu > .has-sub").hover(function (e) {
+    const $li = $(this)
+    if ($li.parent(".main-menu").length && !$li.parent(".main-menu").hasClass("mobile-is-visible") && public_vars.$sidebarMenu.hasClass("collapsed"))
+      $li.addClass('expanded')
   });
   $("a.smooth").click(function (ev) {
     ev.preventDefault();
