@@ -8,6 +8,12 @@
 }
 
 pre {
-    width: 100%;
-    white-space: revert;
+    margin: 0;
+}
+
+.hljs {
+    padding: 0;
+    white-space: pre;
+    width: 100px;
+    overflow-x: visible;
 }
