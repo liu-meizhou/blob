@@ -1,3 +1,20 @@
+$(document).ready(function () {
+    const resize = document.querySelector(".sidebar-menu")
+    resize.onmousedown = function(e) {
+        document.onmousemove = function(e){
+            $(resize).width(e.clientX)
+        }
+        document.onmouseup = function(evt){
+            evt.stopPropagation()
+            document.onmousemove = null;
+            document.onmouseup = null;
+            resize.releaseCapture && resize.releaseCapture();
+        }
+        resize.setCapture && resize.setCapture();
+        return false;
+    }
+});
+
 function search() {
     $(".search-icon").css("opacity", "1");
     var listIndex = -1;

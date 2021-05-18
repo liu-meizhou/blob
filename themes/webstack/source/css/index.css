@@ -432,3 +432,12 @@ body.night .search-engine-list li {
 .fa-angle-down,.smooth {
   white-space: nowrap;
 }
+
+.e-resize {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 100%;
+  cursor: e-resize;
+}
