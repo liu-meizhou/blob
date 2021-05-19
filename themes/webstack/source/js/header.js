@@ -1,6 +1,6 @@
 $(document).ready(function () {
     const resize = document.querySelector(".sidebar-menu")
-    resize.onmousedown = function(e) {
+    document.querySelector(".e-resize").onmousedown = function(e) {
         document.onmousemove = function(e){
             $(resize).width(e.clientX)
         }

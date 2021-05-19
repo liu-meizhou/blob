@@ -21,7 +21,8 @@
     <ul id="main-menu" class="main-menu">
       <% function getContentTree(content) {
         const res = [];
-        const re = /<h(\d) id="(\S+)"><a href="(\S+)" class="headerlink" title="(\S+)">/ig;
+        // console.log(content)
+        const re = /<h(\d) id="([\s\S]+?)"><a href="([\s\S]+?)" class="headerlink" title="([\s\S]+?)">/ig;
         while(tempR = re.exec(content))
         {
           const itemMenu = {
@@ -32,6 +33,7 @@
           }
           res.push(itemMenu);
         }
+        // console.log(res)
         return buildContentTree(res).submenu;
       }
 
@@ -84,8 +86,9 @@
         return menuHtml;
       } %>
 
-      <% if (is_post()) { %>
-        <%- treeMenu(getContentTree(setting.content)) %>
+      <% if (is_post()) {
+        let contentTree = getContentTree(setting.content) %>
+        <%- treeMenu(contentTree) %>
       <% } else { %>
         <%- treeMenu(setting.menu) %>
       <% } %>

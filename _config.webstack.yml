@@ -35,6 +35,10 @@ menu:
   - name: 前端
     icon: far fa-star
     submenu:
+      - name: 开发标准
+        icon: far fa-star
+        config: 前端
+
       - name: 浏览器
         icon: far fa-star
         submenu:
@@ -44,15 +48,15 @@ menu:
 
       - name: HTML
         icon: far fa-star
-        config: html
+        config: http
 
       - name: CSS
         icon: far fa-star
-        config: cssPage
+        config: http
 
       - name: JS
         icon: far fa-star
-        config: javascript
+        config: http
 
       - name: HTTP
         icon: far fa-star
@@ -110,27 +114,6 @@ busuanzi:
   position: sidebar # 'footer','sidebar'
   pv: 本站总访问量$pv
   uv: 本站总访客数$uv
-
-html:
-  - name: HTTP
-    url: /view/html
-    img: /images/logos/github.png
-    description: html页面
-cssPage:
-  - name: CSS
-    url: /view/css
-    img: /images/logos/myblog.png
-    description: CSS页面
-javascript:
-  - name: JS
-    url: /view/js
-    img: /images/logos/myblog.png
-    description: JS页面
-myBlog:
-  - name: MrLiu Blog
-    url: https://blog.hclonely.com/
-    img: /images/logos/myBlog.png
-    description: 一个懒人的博客。
 
 js:
   header: /js/header.js

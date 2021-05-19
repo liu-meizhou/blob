@@ -1,3 +1,11 @@
+.main-content {
+    font-size: 16px;
+}
+
+p {
+    color: #2c2e2f;
+}
+
 .gutter {
     display: inline-block;
     width: max-content;
