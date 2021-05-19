@@ -52,11 +52,15 @@ menu:
 
       - name: CSS
         icon: far fa-star
-        config: http
+        config: css
 
       - name: JS
         icon: far fa-star
         config: http
+
+      - name: Vue
+        icon: far fa-star
+        config: vue
 
       - name: HTTP
         icon: far fa-star

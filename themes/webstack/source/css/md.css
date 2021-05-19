@@ -25,3 +25,7 @@ pre {
     width: 100px;
     overflow-x: visible;
 }
+
+p img {
+    width: 100%;
+}
